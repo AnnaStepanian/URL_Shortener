@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-card-title>Shorten the URL</mat-card-title>
+  <mat-card class="card">
+    <mat-card-content>
+      <div class="input-container">
+        <mat-form-field class="input-field">
+          <input #value matInput placeholder="Enter URL" (keyup.enter)="shortenURL(value.value)">
+        </mat-form-field>
+        <button (click)="shortenURL(value.value)" mat-raised-button color="primary">Shorten</button>
+        <button (click)="reset()" mat-icon-button>
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      <div *ngIf="error$ | async" class="error">{{ error$ | async }}</div>
+      <div *ngIf="shortUrls$ | async as shortUrls">
+        <div class="short-url" *ngIf="shortUrls.length > 0">
+          <h4>Short url:</h4>
+          <a href="{{ shortUrls[0] }}" target="_blank">{{ shortUrls[0] }}</a>
+        </div>
+        <div class="short-url" *ngIf="shortUrls.length > 1">
+          <h4>Short url 2:</h4>
+          <a href="{{ shortUrls[1] }}" target="_blank">{{ shortUrls[1] }}</a>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
