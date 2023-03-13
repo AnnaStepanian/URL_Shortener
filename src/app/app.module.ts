@@ -12,23 +12,25 @@ import {HttpClientModule} from "@angular/common/http";
 import {urlShortenerReducer} from "./reducer/url-shortener.reducer";
 import {StoreModule} from "@ngrx/store";
 import {MatIconModule} from "@angular/material/icon";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    HttpClientModule,
-    StoreModule.forRoot({urlShortener: urlShortenerReducer}),
-    MatIconModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        HttpClientModule,
+        StoreModule.forRoot({urlShortener: urlShortenerReducer}),
+        MatIconModule,
+        MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
